@@ -24,7 +24,6 @@ function generatePassword() {
   var lowercase = window.confirm("Would you like lowercase letters in your password?");
 
   //testing each boolean and adding those characters to charList if they want the characters in their password
-
   if (numerals) {
     charList = charList.concat(numeralsList);
   }
@@ -40,7 +39,8 @@ function generatePassword() {
   
   //for loop to run as many times as characters that the user wants
   for (i = 0; i < passLength; i++){
-    password += charList[Math.random(0, charList.length)]
+    charNum = Math.floor(Math.random() * (charList.length) );
+    password += charList[charNum];
   }
 
   console.log(charList);
