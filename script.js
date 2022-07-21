@@ -1,4 +1,3 @@
-// Assignment Code
 var generateBtn = document.querySelector('#generate');
 
 function generatePassword() {
@@ -10,6 +9,7 @@ function generatePassword() {
   var uppercase;
   var lowercase;
 
+  //charlist will contain all of the possible chars that the user wants in their password
   var charList = [];
   var specialsList = ["!", "\"", "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", ":", ";", "<", "=", ">", "?", "@", "[", "\\", "]", "^", "_", "`", "{", "|", "}", "~"];
   var numeralsList = ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"];
@@ -27,6 +27,7 @@ function generatePassword() {
   if ((passLength < 8) || (passLength > 128)){
     window.alert("Your Password must be greater than 7 and less than 129. Please start over");
     return "Try Again";
+    //returning user to the start if they don't specify they want at least one type of input
   } else if (!specials && !numerals && !uppercase && !lowercase) {
     window.alert("Your Password must contain numbers, letters, or specials");
     return "Try Again";
@@ -54,12 +55,11 @@ function generatePassword() {
     password = "";
 
     //for loop to run as many times as characters that the user wants
+    //generating the password 1 variable at a time 
     for (i = 0; i < passLength; i++){
       charNum = Math.floor(Math.random() * (charList.length) );
       password += charList[charNum];
     }
-
-    console.log(password);
 
     //chekcing to make sure password comtains all required elements
     var containsNumerals = false;
@@ -67,6 +67,7 @@ function generatePassword() {
     var containsUpper = false;
     var containsLower = false;
 
+    //for loops compare each character in the password to each list of character types to make sure that at least one matches
     for(i = 0; i < password.length; i++) {
       for (j = 0; j < numeralsList.length; j++) {
         if (password.charAt(i) == numeralsList[j]) {
@@ -99,6 +100,7 @@ function generatePassword() {
       }
     }
 
+    //if the user is getting the characters that they want in their password
     if((containsNumerals == numerals) && (containsSpecials == specials) && (containsUpper == uppercase) && (containsLower == lowercase)){
       containsElements = true;
     }
