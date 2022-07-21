@@ -27,6 +27,9 @@ function generatePassword() {
   if ((passLength < 8) || (passLength > 128)){
     window.alert("Your Password must be greater than 7 and less than 129. Please start over");
     return "Try Again";
+  } else if (!specials && !numerals && !uppercase && !lowercase) {
+    window.alert("Your Password must contain numbers, letters, or specials");
+    return "Try Again";
   }
 
   //testing each boolean and adding those characters to charList if they want the characters in their password
