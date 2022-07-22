@@ -25,7 +25,7 @@ function generatePassword() {
 
   //returning user to the start if passLength is not [8, 128]
   if ((passLength < 8) || (passLength > 128)){
-    window.alert("Your Password must be greater than 7 and less than 129. Please start over");
+    window.alert("Your password length must be greater than 7 and less than 129. Please start over");
     return "Try Again";
     //returning user to the start if they don't specify they want at least one type of input
   } else if (!specials && !numerals && !uppercase && !lowercase) {
